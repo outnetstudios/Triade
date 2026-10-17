@@ -1,0 +1,29 @@
+# Configuración de la App en Wasmer Edge.
+# Edita "owner" con tu usuario de Wasmer (wasmer.io) antes de ejecutar: wasmer deploy
+kind: wasmer.io/App.v0
+name: triade
+owner: TU-USUARIO-WASMER
+package: .
+volumes:
+  - name: wp-content
+    mount: /app/wp-content
+scaling:
+  mode: single_concurrency
+capabilities:
+  database:
+    engine: mysql
+  instaboot:
+    max_age: 59m
+    requests:
+      - path: /
+        headers:
+          - name: Accept
+            value: text/html
+          - name: Accept-Language
+            value: es-ES
+      - path: /
+        headers:
+          - name: Accept
+            value: text/html
+          - name: Accept-Language
+            value: es-ES

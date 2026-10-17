@@ -1,0 +1,20 @@
+# WordPress
+wordpress/wp-config.php
+wordpress/wp-content/uploads/
+wordpress/wp-content/upgrade/
+wordpress/wp-content/cache/
+wordpress/wp-content/backup*/
+wordpress/wp-content/themes/*/node_modules/
+
+*.sql
+*.sqlite
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.idea/
+.vscode/
+*.swp
