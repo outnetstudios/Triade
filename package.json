@@ -1,0 +1,13 @@
+{
+	"name": "triade-wordpress",
+	"version": "1.1.0",
+	"private": true,
+	"description": "Sitio WordPress de TRIADE: tema clásico con Tailwind CSS compilado.",
+	"scripts": {
+		"build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o wordpress/wp-content/themes/triade/assets/css/tailwind.css --minify",
+		"watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o wordpress/wp-content/themes/triade/assets/css/tailwind.css --watch"
+	},
+	"devDependencies": {
+		"tailwindcss": "^3.4.17"
+	}
+}

@@ -2,81 +2,44 @@
 Theme Name: TRIADE
 Theme URI: https://triade.org.es
 Author: TRIADE
-Description: Tema parent de TRIADE. Replica el diseño corporativo "Helios Pure Modern" para montaje solar y servicios auxiliares.
-Version: 1.0.0
+Author URI: https://triade.org.es
+Description: Tema clásico de TRIADE para montaje solar, servicios auxiliares y gestión de cuadrillas. Réplica del sistema de diseño "Helios Pure Modern" con Tailwind CSS compilado, formularios conectados a WordPress y datos corporativos editables desde el Personalizador.
+Version: 1.1.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 8.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: triade
-Tags: custom-colors, custom-menu, featured-images, translation-ready
+Tags: custom-colors, custom-menu, custom-logo, featured-images, translation-ready, blog
 */
 
-@layer base {
-	html,
-	body {
-		margin: 0;
-		padding: 0;
+/* Ajustes propios del tema que no cubre Tailwind. */
+
+.site-header.is-scrolled {
+	box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.12), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+}
+
+/* Barra de administración de WordPress. */
+body.admin-bar .site-header {
+	top: 32px;
+}
+
+body.admin-bar #mobile-menu {
+	top: calc(5rem + 32px);
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar .site-header {
+		top: 46px;
 	}
 
-	body {
-		overscroll-behavior: none;
-	}
-
-	main > :first-child {
-		margin-top: 0 !important;
-	}
-
-	main > :last-child {
-		margin-bottom: 0 !important;
+	body.admin-bar #mobile-menu {
+		top: calc(5rem + 46px);
 	}
 }
 
-::-webkit-scrollbar {
-	display: none;
-}
-
-.entry-content {
-	line-height: 1.6;
-}
-
-.entry-content > * + * {
-	margin-top: 1rem;
-}
-
-.entry-content h2 {
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin-top: 2rem;
-	color: #0b1c30;
-}
-
-.entry-content h3 {
-	font-size: 1.25rem;
-	font-weight: 600;
-	margin-top: 1.5rem;
-	color: #0b1c30;
-}
-
-.entry-content a {
-	color: #006194;
-	text-decoration: underline;
-}
-
-.entry-content ul,
-.entry-content ol {
-	padding-left: 1.5rem;
-}
-
-.entry-content img {
-	border-radius: 0.75rem;
-	height: auto;
-}
-
-blockquote {
-	border-left: 3px solid #006194;
-	padding-left: 1rem;
-	color: #3f4850;
-	font-style: italic;
+/* La cabecera fija no debe tapar los anclajes. */
+:target {
+	scroll-margin-top: 6rem;
 }

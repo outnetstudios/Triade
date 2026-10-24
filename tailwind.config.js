@@ -1,5 +1,39 @@
-tailwind.config = {
-	darkMode: "class",
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	content: [
+		"./wordpress/wp-content/themes/triade/**/*.php",
+		"./wordpress/wp-content/themes/triade/assets/js/**/*.js",
+	],
+	safelist: [
+		"hidden",
+		"block",
+		"flex",
+		"is-active",
+		"is-open",
+		"nav-link",
+		"nav-link-mobile",
+		"text-primary",
+		"font-bold",
+		"bg-surface-container-low",
+		"px-space-sm",
+		"py-space-xs",
+		"rounded-lg",
+		"bg-error-container",
+		"text-on-error-container",
+		"bg-primary-fixed",
+		"text-primary",
+		"opacity-0",
+		"opacity-100",
+		"pointer-events-none",
+		"translate-y-2",
+		"translate-y-0",
+		"scale-95",
+		"scale-100",
+		"rotate-180",
+		"ring-2",
+		"ring-primary",
+		"border-error",
+	],
 	theme: {
 		extend: {
 			colors: {
@@ -40,7 +74,6 @@ tailwind.config = {
 				"on-primary-fixed-variant": "#004b73",
 				"on-secondary-fixed": "#2a1700",
 				"on-primary-fixed": "#001d31",
-				"on-primary-container": "#fdfcff",
 				"inverse-surface": "#213145",
 				"secondary-fixed": "#ffddb8",
 				"on-tertiary": "#ffffff",
@@ -55,6 +88,8 @@ tailwind.config = {
 				DEFAULT: "0.25rem",
 				lg: "0.5rem",
 				xl: "0.75rem",
+				"2xl": "1rem",
+				"3xl": "1.5rem",
 				full: "9999px",
 			},
 			spacing: {
@@ -71,6 +106,7 @@ tailwind.config = {
 				"margin-lg": "5rem",
 			},
 			fontFamily: {
+				sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
 				"label-sm": ["Plus Jakarta Sans"],
 				"label-lg": ["Plus Jakarta Sans"],
 				"label-md": ["Plus Jakarta Sans"],
@@ -98,6 +134,25 @@ tailwind.config = {
 				"headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
 				"body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
 			},
+			boxShadow: {
+				"ambient": "0 10px 30px -10px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.03)",
+				"ambient-lg": "0 24px 60px -20px rgba(15, 23, 42, 0.18), 0 8px 20px -8px rgba(15, 23, 42, 0.08)",
+			},
+			keyframes: {
+				"bounce-subtle": {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-6px)" },
+				},
+				"fade-up": {
+					"0%": { opacity: "0", transform: "translateY(12px)" },
+					"100%": { opacity: "1", transform: "translateY(0)" },
+				},
+			},
+			animation: {
+				"bounce-subtle": "bounce-subtle 4s ease-in-out infinite",
+				"fade-up": "fade-up 0.6s ease-out both",
+			},
 		},
 	},
+	plugins: [],
 };

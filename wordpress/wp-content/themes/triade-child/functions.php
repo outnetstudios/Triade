@@ -9,18 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Carga el CSS del child después del tema padre.
+ */
 function triade_child_assets() {
-	wp_enqueue_style(
-		'triade-parent',
-		get_template_directory_uri() . '/style.css',
-		array(),
-		wp_get_theme( 'triade' )->get( 'Version' )
-	);
-
 	wp_enqueue_style(
 		'triade-child',
 		get_stylesheet_uri(),
-		array( 'triade-parent' ),
+		array( 'triade-style' ),
 		wp_get_theme( 'triade-child' )->get( 'Version' )
 	);
 }

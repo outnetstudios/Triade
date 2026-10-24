@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--triade-header-height: 5rem;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: calc(var(--triade-header-height) + 1.5rem);
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		@apply bg-surface text-on-surface antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	::selection {
+		@apply bg-secondary-container text-on-secondary-container;
+	}
+
+	:focus-visible {
+		@apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-surface;
+	}
+
+	/* Thin, discreet scrollbar instead of hiding it entirely. */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: #bfc7d2 transparent;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: #bfc7d2;
+		border-radius: 9999px;
+		border: 3px solid #f8f9ff;
+	}
+}
+
+@layer components {
+	.material-symbols-outlined {
+		font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+		user-select: none;
+	}
+
+	.nav-link {
+		@apply whitespace-nowrap font-label-lg text-label-lg text-on-surface-variant transition-colors hover:text-on-surface;
+	}
+
+	.nav-link.is-active {
+		@apply rounded-lg bg-surface-container-low px-space-sm py-space-xs font-bold text-primary;
+	}
+
+	.nav-link-mobile {
+		@apply flex items-center justify-between rounded-xl px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-on-surface;
+	}
+
+	.nav-link-mobile.is-active {
+		@apply bg-surface-container-low font-bold text-primary;
+	}
+
+	.triade-field {
+		@apply h-12 w-full rounded-xl bg-surface-container-low px-space-sm font-body-md text-body-md text-on-surface shadow-sm transition-shadow placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary;
+	}
+
+	textarea.triade-field {
+		@apply h-auto py-space-sm;
+	}
+
+	.triade-label {
+		@apply mb-1 block font-label-md text-label-md font-bold text-on-surface;
+	}
+
+	.btn {
+		@apply inline-flex items-center justify-center gap-space-xs rounded-xl font-label-lg text-label-lg transition-all;
+	}
+
+	.btn-primary {
+		@apply btn bg-on-surface text-surface shadow-md hover:bg-primary;
+	}
+
+	.btn-accent {
+		@apply btn bg-secondary-container text-on-secondary-container shadow-md hover:bg-secondary hover:text-on-secondary;
+	}
+
+	.btn-ghost {
+		@apply btn bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container;
+	}
+
+	.eyebrow {
+		@apply font-label-md text-label-md font-bold uppercase tracking-wider text-secondary;
+	}
+
+	.card {
+		@apply rounded-2xl bg-surface-container-lowest shadow-sm;
+	}
+
+	/* Reveal-on-scroll (progressive enhancement, respects reduced motion). */
+	.reveal {
+		opacity: 0;
+		transform: translateY(18px);
+		transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+		will-change: opacity, transform;
+	}
+
+	.reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001ms !important;
+		}
+	}
+
+	/* WordPress content styles. */
+	.entry-content {
+		@apply font-body-md text-body-md leading-relaxed text-on-surface-variant;
+	}
+
+	.entry-content > * + * {
+		@apply mt-space-md;
+	}
+
+	.entry-content h2 {
+		@apply mt-space-xl font-headline-lg text-headline-lg text-on-surface;
+	}
+
+	.entry-content h3 {
+		@apply mt-space-lg font-headline-sm text-headline-sm font-bold text-on-surface;
+	}
+
+	.entry-content p {
+		@apply leading-relaxed;
+	}
+
+	.entry-content a {
+		@apply font-semibold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary;
+	}
+
+	.entry-content ul {
+		@apply list-disc space-y-2 pl-6;
+	}
+
+	.entry-content ol {
+		@apply list-decimal space-y-2 pl-6;
+	}
+
+	.entry-content img {
+		@apply h-auto max-w-full rounded-xl shadow-sm;
+	}
+
+	.entry-content blockquote {
+		@apply border-l-4 border-primary pl-space-md font-body-lg italic text-on-surface;
+	}
+
+	.entry-content table {
+		@apply w-full border-collapse text-left text-body-sm;
+	}
+
+	.entry-content th,
+	.entry-content td {
+		@apply border-b border-outline-variant px-space-sm py-space-xs;
+	}
+}
