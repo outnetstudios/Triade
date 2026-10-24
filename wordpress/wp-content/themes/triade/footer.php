@@ -12,17 +12,10 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-12">
 		<div class="grid grid-cols-1 gap-gutter-lg pb-space-xl md:grid-cols-2 lg:grid-cols-12">
 			<div class="flex flex-col gap-space-md lg:col-span-4">
-				<a class="flex items-center gap-space-sm" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<span class="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary-fixed text-secondary">
-						<svg class="h-5 w-5" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-							<circle cx="16" cy="16" r="5.4" fill="currentColor" />
-							<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-								<path d="M16 2.6v3.1M16 26.3v3.1M2.6 16h3.1M26.3 16h3.1M6.6 6.6l2.2 2.2M23.2 23.2l2.2 2.2M25.4 6.6l-2.2 2.2M8.8 23.2l-2.2 2.2" />
-							</g>
-						</svg>
-					</span>
-					<span class="font-headline-md text-headline-md tracking-tight text-on-surface">TRIADE</span>
+				<a class="inline-flex" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'TRIADE — Inicio', 'triade' ); ?>">
+					<img src="<?php echo esc_url( triade_logo_url() ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="h-12 w-auto" width="180" height="62" />
 				</a>
+				<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary"><?php esc_html_e( 'Energía & Personal', 'triade' ); ?></span>
 				<p class="max-w-sm font-body-sm text-body-sm text-on-surface-variant">
 					<?php esc_html_e( 'Soluciones especializadas en montaje de estructuras fijas y seguidores solares, ensamblaje de paneles fotovoltaicos, obra civil auxiliar y cuadrillas técnicas homologadas para grandes parques renovables.', 'triade' ); ?>
 				</p>

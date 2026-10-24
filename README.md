@@ -121,7 +121,7 @@ curl -I https://triade-org.wasmer.app/wp-content/themes/triade/assets/css/tailwi
 2. Activa **TRIADE Child** (hereda del parent `triade`).
 3. En `Ajustes → Lectura`, elige una página estática como portada (la plantilla `front-page.php` se usa igualmente).
 
-El sitio de producción ya está configurado con el tema activo, páginas de Inicio/Blog y datos corporativos.
+El sitio de producción ya está configurado con el tema activo, páginas de Inicio/Blog y datos corporativos. El tema activo es **TRIADE Child** (el padre `triade` aporta el diseño).
 
 ---
 
@@ -143,6 +143,7 @@ add_action( 'triade_contact_created', function ( $post_id, $data ) {
 
 ## Personalización
 
+- **Logo**: `assets/img/logo-triade.svg` (versión color para fondos claros) y `assets/img/logo-triade-white.svg` (versión blanca para fondos oscuros). Los favicons están en `assets/img/favicon.svg`, `favicon-32.png` y `favicon-180.png`. También puedes subir un logo propio en **Personalizar → Identidad del sitio**.
 - **Textos y datos de contacto**: Personalizador.
 - **Menús**: Apariencia → Menús (ubicaciones *Menú Principal* y *Menú Legal*).
 - **CSS propio**: `wordpress/wp-content/themes/triade-child/style.css`.

@@ -175,5 +175,5 @@ function triade_logo_url() {
 		}
 	}
 
-	return '';
+	return TRIADE_URI . '/assets/img/logo-triade.svg';
 }

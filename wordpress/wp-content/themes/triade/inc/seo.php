@@ -84,6 +84,8 @@ function triade_head_meta() {
 
 	if ( ! has_site_icon() ) {
 		printf( '<link rel="icon" href="%s" type="image/svg+xml" />' . "\n", esc_url( get_template_directory_uri() . '/assets/img/favicon.svg' ) );
+		printf( '<link rel="icon" href="%s" sizes="32x32" type="image/png" />' . "\n", esc_url( get_template_directory_uri() . '/assets/img/favicon-32.png' ) );
+		printf( '<link rel="apple-touch-icon" href="%s" sizes="180x180" />' . "\n", esc_url( get_template_directory_uri() . '/assets/img/favicon-180.png' ) );
 	}
 }
 add_action( 'wp_head', 'triade_head_meta', 1 );

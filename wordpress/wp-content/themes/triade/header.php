@@ -22,23 +22,8 @@ $triade_logo = triade_logo_url();
 
 <header id="site-header" class="site-header fixed inset-x-0 top-0 z-50 border-b border-outline-variant/40 bg-surface-container-lowest/90 backdrop-blur-xl transition-shadow duration-300">
 	<div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-gutter px-6 lg:px-12">
-		<a class="group flex items-center gap-space-sm" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> — <?php esc_attr_e( 'Inicio', 'triade' ); ?>">
-			<?php if ( $triade_logo ) : ?>
-				<img src="<?php echo esc_url( $triade_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="h-10 w-auto" width="160" height="40" />
-			<?php else : ?>
-				<span class="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-fixed text-secondary shadow-[0_4px_12px_rgba(133,83,0,0.12)] transition-transform group-hover:scale-105">
-					<svg class="h-6 w-6" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-						<circle cx="16" cy="16" r="5.4" fill="currentColor" />
-						<g stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-							<path d="M16 2.6v3.1M16 26.3v3.1M2.6 16h3.1M26.3 16h3.1M6.6 6.6l2.2 2.2M23.2 23.2l2.2 2.2M25.4 6.6l-2.2 2.2M8.8 23.2l-2.2 2.2" />
-						</g>
-					</svg>
-				</span>
-				<span class="flex flex-col whitespace-nowrap">
-					<span class="font-headline-md text-headline-md leading-none tracking-tight text-on-surface">TRIADE</span>
-					<span class="mt-0.5 whitespace-nowrap font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary"><?php esc_html_e( 'Energía & Personal', 'triade' ); ?></span>
-				</span>
-			<?php endif; ?>
+		<a class="flex items-center" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> — <?php esc_attr_e( 'Inicio', 'triade' ); ?>">
+			<img src="<?php echo esc_url( $triade_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="h-12 w-auto sm:h-14" width="200" height="68" />
 		</a>
 
 		<nav class="hidden items-center gap-5 xl:flex 2xl:gap-gutter" aria-label="<?php esc_attr_e( 'Menú principal', 'triade' ); ?>">
