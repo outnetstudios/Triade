@@ -51,6 +51,8 @@ Triade/
 ├── scripts/build-css.ps1        # Compila Tailwind sin Node
 ├── wordpress/                   # Núcleo de WordPress 7.1.3
 │   └── wp-content/
+│       ├── plugins/
+│       │   └── triade-smtp/     # Configuración SMTP desde wp-admin
 │       ├── themes/
 │       │   ├── triade/          # Tema parent (diseño completo)
 │       │   └── triade-child/    # Tema child (personalizaciones)
@@ -128,7 +130,8 @@ El sitio de producción ya está configurado con el tema activo, páginas de Ini
 ## Formularios y correo
 
 - Las solicitudes se guardan como CPT `triade_solicitud` y los suscriptores como `triade_suscriptor`.
-- `wp_mail()` puede no enviar correo en Wasmer Edge (no hay servidor SMTP local). **Las solicitudes no se pierden**: quedan en `wp-admin → Solicitudes`. Para envío real, conecta un plugin SMTP o un servicio transaccional.
+- **TRIADE SMTP** está activo en `wordpress/wp-content/plugins/triade-smtp/`. Configúralo en **Ajustes → SMTP TRIADE**.
+- Mientras no haya SMTP configurado, `wp_mail()` no envía correo en Wasmer Edge, pero **las solicitudes no se pierden**: quedan en `wp-admin → Solicitudes`.
 - Para integrar un CRM, Slack o un webhook:
 
 ```php
@@ -138,6 +141,19 @@ add_action( 'triade_contact_created', function ( $post_id, $data ) {
 ```
 
 - Los formularios incluyen nonce, honeypot, validación y límite de frecuencia.
+
+### Configurar el envío (SMTP)
+
+1. Entra en **Ajustes → SMTP TRIADE**.
+2. Rellena el **servidor**, **puerto** y **cifrado** que te haya dado tu proveedor:
+   - Gmail: `smtp.gmail.com`, `587`, `TLS` + contraseña de aplicación.
+   - Microsoft 365: `smtp.office365.com`, `587`, `TLS`.
+   - Brevo / Mailgun / SendGrid: host y credenciales SMTP de su panel.
+   - Puerto `465`: selecciona `SSL`.
+3. Indica el **usuario**, la **contraseña** y el **email remitente** autorizado.
+4. Guarda y pulsa **Enviar correo de prueba**.
+
+La contraseña se guarda en la base de datos de WordPress y no se vuelve a mostrar en el panel. Usa una contraseña de aplicación, no la contraseña principal de la cuenta. Si Wasmer bloquea las conexiones SMTP salientes, el correo de prueba mostrará el error concreto; en ese caso habría que usar un proveedor con API HTTP o consultar con Wasmer.
 
 ---
 

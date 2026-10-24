@@ -1,0 +1,93 @@
+.triade-smtp-wrap .triade-smtp-status {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left: 4px solid #dba617;
+	border-radius: 4px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 16px 0 20px;
+	padding: 12px 16px;
+}
+
+.triade-smtp-wrap .triade-smtp-status.is-on {
+	border-left-color: #00a32a;
+}
+
+.triade-smtp-badge {
+	background: #fcf9e8;
+	border-radius: 999px;
+	color: #996800;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	padding: 3px 10px;
+	text-transform: uppercase;
+}
+
+.triade-smtp-status.is-on .triade-smtp-badge {
+	background: #edfaef;
+	color: #007017;
+}
+
+.triade-smtp-grid {
+	align-items: start;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: minmax(0, 1fr) 340px;
+}
+
+.triade-smtp-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	margin-bottom: 20px;
+	padding: 8px 20px 16px;
+}
+
+.triade-smtp-card h2 {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.triade-smtp-side {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.triade-smtp-list {
+	list-style: none;
+	margin: 0;
+}
+
+.triade-smtp-list li {
+	border-bottom: 1px solid #f0f0f1;
+	display: flex;
+	gap: 12px;
+	justify-content: space-between;
+	margin: 0;
+	padding: 8px 0;
+}
+
+.triade-smtp-list li:last-child {
+	border-bottom: 0;
+}
+
+.triade-smtp-help li {
+	display: block;
+	line-height: 1.5;
+}
+
+.triade-smtp-help code {
+	white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+	.triade-smtp-grid {
+		grid-template-columns: 1fr;
+	}
+}
